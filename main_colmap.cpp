@@ -372,6 +372,7 @@ int main(int argc, char *argv[])
             Eigen::Vector3d C = cams_C[imgID];
 
             // read image
+            std::cout<<inputFolder+"/"+cams_images[imgID]<<std::endl;
             cv::Mat image = cv::imread(inputFolder+"/"+cams_images[imgID],CV_LOAD_IMAGE_GRAYSCALE);
 
             // undistort image
@@ -412,7 +413,7 @@ int main(int argc, char *argv[])
             }
         }
     }
-
+    std::cout<<"Matching ..."<<std::endl;
     // match images
     Line3D->matchImages(sigmaP,sigmaA,neighbors,epipolarOverlap,
                         kNN,constRegDepth);

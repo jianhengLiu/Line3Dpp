@@ -1,0 +1,9 @@
+**/build
+**/devel
+**/.idea
+**/cmake-build-debug
+**/__pycache__
+**/.vscode
+
+**/Line3D++/
+!.gitignore

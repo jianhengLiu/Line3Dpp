@@ -243,7 +243,6 @@ int main(int argc, char *argv[])
             iss_point3D >> camID >> siftID;
             iss_point3D >> posX >> posY;
             cams_worldpointIDs[camID].push_back(i);
-
             cams_worldpointDepths[camID].push_back((pos3D-cams_centers[camID]).norm());
         }
     }

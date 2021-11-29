@@ -30,6 +30,12 @@
 #include "lsd/lsd_opencv.hpp"
 #else
 #include "opencv2/imgproc.hpp"
+/* OpenCV 4 */
+#include "opencv2/imgproc/types_c.h"
+#include "opencv2/imgcodecs/legacy/constants_c.h"
+#include "opencv2/calib3d.hpp"
+#include "opencv2/ximgproc.hpp"
+/**/
 #include "opencv2/core.hpp"
 #endif //L3DPP_OPENCV3
 
@@ -210,6 +216,9 @@ namespace L3DPP
         // camID - ID of the given view (for re-loading only)
         // image - the corresponding image (cv::Mat, CV_8U or CV_8UC3)
         L3DPP::DataArray<float4>* detectLineSegments(const unsigned int camID, const cv::Mat& image);
+
+        // modified : add mask
+        L3DPP::DataArray<float4>* detectLineSegments(const unsigned int camID, const cv::Mat& image, const cv::Mat& mask);
 
         // --------------------------------------------------
         // helper functions (needed in specific executables):
