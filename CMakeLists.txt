@@ -304,6 +304,14 @@ add_executable(runLine3Dpp_colmap main_colmap.cpp)
 target_link_libraries(runLine3Dpp_colmap line3Dpp)
 target_link_libraries(runLine3Dpp_colmap ${ALL_LIBRARIES})
 
+add_executable(runLine3Dpp_colmap_semantic main_colmap_semantic.cpp)
+target_link_libraries(runLine3Dpp_colmap_semantic line3Dpp)
+target_link_libraries(runLine3Dpp_colmap_semantic ${ALL_LIBRARIES})
+
+add_executable(main_colmap_test main_colmap_test.cpp)
+target_link_libraries(main_colmap_test line3Dpp)
+target_link_libraries(main_colmap_test ${ALL_LIBRARIES})
+
 #----- Add main for OpenMVG --------
 IF(RapidJSON_FOUND)
 add_executable(runLine3Dpp_openmvg main_openmvg.cpp)

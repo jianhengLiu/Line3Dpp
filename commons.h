@@ -141,6 +141,17 @@ namespace L3DPP
         float length_;
     };
 
+    // 2D semantic segment coords (with length)
+    struct SegmentData2DSemantic
+    {
+        float p1x_;
+        float p1y_;
+        float p2x_;
+        float p2y_;
+        float length_;
+        int label_;
+    };
+
     // comparator
     class SegmentData2D_comparison
     {
@@ -152,8 +163,20 @@ namespace L3DPP
         }
     };
 
+    class SegmentData2DSemantic_comparison
+    {
+    public:
+        SegmentData2DSemantic_comparison(){}
+        bool operator() (const L3DPP::SegmentData2DSemantic& lhs, const L3DPP::SegmentData2DSemantic& rhs) const
+        {
+            return lhs.length_ < rhs.length_;
+        }
+    };
+
     // queue
     typedef std::priority_queue<L3DPP::SegmentData2D,std::vector<L3DPP::SegmentData2D>,L3DPP::SegmentData2D_comparison> lines2D_sorted_by_length;
+
+    typedef std::priority_queue<L3DPP::SegmentData2DSemantic,std::vector<L3DPP::SegmentData2DSemantic>,L3DPP::SegmentData2DSemantic_comparison> lines2DSemantic_sorted_by_length;
 
     //------------------------------------------------------------------------------
     // visual neighbors
